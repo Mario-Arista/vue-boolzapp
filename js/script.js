@@ -4,6 +4,12 @@ createApp({
     data() {
         return {
 
+            // contatore
+            indexForFriend: 0,
+
+            // per far apparire classe al click delle chat laterali
+            isActive: false,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -174,10 +180,17 @@ createApp({
         }
     },
 
-
     methods: {
 
-        // Funzioni
+        // Funzione che al click mi fa vedere la conversazione 
+        showConversation(index) {
+            
+            this.indexForFriend = index;
+
+            
+        },
+
+        
 
     },
 

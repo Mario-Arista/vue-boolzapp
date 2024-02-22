@@ -67,9 +67,11 @@
                 <div id="chats">
 
                    <div class="single-chat"
-                        v-for="contact in contacts"
+                        v-for="(contact, index) in contacts"
+                        @click="showConversation(index)"
+
                    > 
-                        <div class="friend"> 
+                        <div id="friend"> 
                             <img :src="contact.avatar" alt="me stesso">
                             <div>
                                 <div class="friend-name">{{ contact.name }}</div>
@@ -93,9 +95,9 @@
                 <div class="friend-opened"> 
 
                     <div class="info-opened-friend">
-                        <img src="./img/avatar_1.jpg" alt="">
+                        <img :src="contacts[indexForFriend].avatar" alt="contacts[indexForFriend].name">
                         <div class="testo-friend">
-                            <div class="friend-name">Mario</div>
+                            <div class="friend-name">{{ contacts[indexForFriend].name }}</div>
                             <div class="last-message">
                                 Ultimo messaggio oggi alle 
                             <span class="time-message">12:00</span>

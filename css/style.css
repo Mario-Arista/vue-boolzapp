@@ -50,6 +50,11 @@ main {
     font-size: 25px;
 }
 
+/* Classi da gestire con js */
+
+.active {
+    background-color: red;
+}
 /* 
 
 PARTE SINISTRA
@@ -196,7 +201,7 @@ ANTEPRIME DELLE CHAT
 }
 
 
-#chats .friend {
+#chats #friend {
 
     display: flex;
     justify-content: flex-start;
@@ -208,7 +213,7 @@ ANTEPRIME DELLE CHAT
 
 }
 
-#chats .friend img {
+#chats #friend img {
 
     width: 50px;
     height: 50px;
@@ -266,6 +271,7 @@ CHAT APERTA
     height: 70px;
 
     background-color: #EAEAEA;
+    border-left: 1px solid #B1B1B1;
 }
 
 .info-opened-friend {
