@@ -36,7 +36,33 @@ main {
     padding-right: 10px;
 }
 
+/* Style comune per immagini persone */
+
+.person-img {
+    width: 50px;
+    height: 50px;
+    
+}
+
+.person-img img {
+    width: 100%;
+    border-radius: 50%;
+    
+}
+
+/* 
+
+PARTE SINISTRA
+ANTEPRIME DELLE CHAT
+
+*/
+
+
 #chats-overview {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
     width: 560px;
     height: 100%;
 
@@ -44,11 +70,129 @@ main {
     border: 1px red solid;
 }
 
+/* Profilo personale */
+
+#my-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    height: 70px;
+
+    padding-left: 8px;
+
+    background-color: #EAEAEA;
+}
+
+#my-profile .person-img {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.pr-icons {
+    display: flex;
+    gap: 20px;
+
+    padding-right: 25px;
+}
+.pr-icons i {
+    color: #B1B1B1;
+    font-size: 25px;
+}
+
+
+/* Notifiche */
+
+#notific-received {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
+    height: 80px;
+
+    padding-left: 15px;
+
+    background-color: #8EDAFC;
+}
+
+#notific-received .bell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background-color: white;
+}
+
+#notific-received .bell i {
+    color: #8EDAFC;
+}
+
+#notific-received a {
+
+    color: #B1B1B1;
+    font-size: 0.9em;
+}
+
+/* Filtro ricerca */
+
+#chats-filter {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    width: 100%;
+    height: 50px;
+    background-color: white;
+}
+
+#chats-filter i {
+
+    padding-left: 30px;
+    color: #B1B1B1;
+
+}
+
+#chats-filter input {
+    flex-grow: 1;
+    
+    height: 20px;
+
+    margin-right: 30px;
+
+    border: none;
+} 
+
+/* Persone con cui chattare */
+
+
+
+/* 
+
+PARTE DESTRA
+CHAT APERTA
+
+*/
+
 #chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     flex-grow: 1;
     height: 100%;
 
     /* test */
     border: 1px green solid;
 }
+
+
 
