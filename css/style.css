@@ -36,20 +36,6 @@ main {
     padding-right: 10px;
 }
 
-/* Style comune per immagini persone */
-
-.person-img {
-    width: 50px;
-    height: 50px;
-    
-}
-
-.person-img img {
-    width: 100%;
-    border-radius: 50%;
-    
-}
-
 /* 
 
 PARTE SINISTRA
@@ -66,8 +52,6 @@ ANTEPRIME DELLE CHAT
     width: 560px;
     height: 100%;
 
-    /* test */
-    border: 1px red solid;
 }
 
 /* Profilo personale */
@@ -91,12 +75,25 @@ ANTEPRIME DELLE CHAT
     gap: 2px;
 }
 
+.my-img {
+    width: 50px;
+    height: 50px;
+    
+}
+
+.my-img img {
+    width: 100%;
+    border-radius: 50%;
+    
+}
+
 .pr-icons {
     display: flex;
     gap: 20px;
 
     padding-right: 25px;
 }
+
 .pr-icons i {
     color: #B1B1B1;
     font-size: 25px;
@@ -164,7 +161,7 @@ ANTEPRIME DELLE CHAT
 #chats-filter input {
     flex-grow: 1;
     
-    height: 20px;
+    height: 100%;
 
     margin-right: 30px;
 
@@ -173,6 +170,69 @@ ANTEPRIME DELLE CHAT
 
 /* Persone con cui chattare */
 
+#chats {
+
+    width: 100%;
+    height: 100%;
+
+    /* Per ora lo metto auto */
+    overflow-y: auto;
+
+    background-color: #FFFFFF;
+}
+
+#chats .single-chat {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 80px;
+
+    padding-left: 15px;
+
+    /* test  */
+    border: 1px dashed black;
+}
+
+#chats .friend {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+
+    flex-grow: 1;
+    height: 100%;
+
+}
+
+#chats .friend img {
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    
+}
+
+#chats .friend-name {
+    font-size: 1.2em;
+}
+
+#chats .last-mess {
+    font-size: 0.9em;
+    color: #B1B1B1;
+    opacity: 0.8;
+}
+
+#chats .time-message {
+    font-size: 0.9em;
+    color: #B1B1B1;
+    opacity: 0.8;
+
+    padding-right: 10px;
+    padding-top: 10px;
+}
 
 
 /* 
