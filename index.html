@@ -79,7 +79,9 @@
                             </div>
                         </div>
 
-                        <div class="time-message">12:00</div>
+                        <div class="time-message">
+                            12:00
+                        </div>
 
                     </div>
 
@@ -119,9 +121,11 @@
                 <!-- Corpo messaggi -->
                 <div id="open-messages">
 
-                    <div id="message"> 
-                        <div class="sent">
-                            <div>Hai portato a spasso il cane</div>
+                    <div id="message"
+                        v-for="(message, index) in contacts[indexForFriend].messages"
+                    > 
+                        <div :class="message.status === 'received' ? 'received' : 'sent' ">
+                            <div>{{message.message}}</div>
                         </div>
                     </div>
 
