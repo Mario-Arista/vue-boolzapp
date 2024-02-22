@@ -36,6 +36,20 @@ main {
     padding-right: 10px;
 }
 
+/* Stile in comune per icone header destra e sinistra */
+
+.pr-icons {
+    display: flex;
+    gap: 20px;
+
+    padding-right: 25px;
+}
+
+.pr-icons i {
+    color: #B1B1B1;
+    font-size: 25px;
+}
+
 /* 
 
 PARTE SINISTRA
@@ -51,6 +65,8 @@ ANTEPRIME DELLE CHAT
 
     width: 560px;
     height: 100%;
+
+    background-color: #FFFFFF;
 
 }
 
@@ -69,7 +85,7 @@ ANTEPRIME DELLE CHAT
     background-color: #EAEAEA;
 }
 
-#my-profile .person-img {
+#my-profile .my-img {
     display: flex;
     align-items: center;
     gap: 2px;
@@ -85,18 +101,6 @@ ANTEPRIME DELLE CHAT
     width: 100%;
     border-radius: 50%;
     
-}
-
-.pr-icons {
-    display: flex;
-    gap: 20px;
-
-    padding-right: 25px;
-}
-
-.pr-icons i {
-    color: #B1B1B1;
-    font-size: 25px;
 }
 
 
@@ -173,10 +177,9 @@ ANTEPRIME DELLE CHAT
 #chats {
 
     width: 100%;
-    height: 100%;
+    height: calc(100% - 70px - 80px -50px );
 
-    /* Per ora lo metto auto */
-    overflow-y: auto;
+    overflow-y: scroll;
 
     background-color: #FFFFFF;
 }
@@ -190,9 +193,8 @@ ANTEPRIME DELLE CHAT
 
     padding-left: 15px;
 
-    /* test  */
-    border: 1px dashed black;
 }
+
 
 #chats .friend {
 
@@ -242,7 +244,7 @@ CHAT APERTA
 
 */
 
-#chat {
+#open-chat {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -252,6 +254,150 @@ CHAT APERTA
 
     /* test */
     border: 1px green solid;
+}
+
+/* Header Chat aperta */
+
+#open-chat .friend-opened {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px;
+
+    width: 100%;
+    height: 70px;
+
+    background-color: #EAEAEA;
+}
+
+.info-opened-friend {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding-left: 8px;
+
+}
+
+#open-chat .friend-opened img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+}
+
+.info-opened-friend .friend-name {
+    font-size: 1.2em;
+}
+
+.info-opened-friend .last-message {
+    font-size: 0.9em;
+    color: #B1B1B1;
+    opacity: 0.8;
+
+
+}
+
+/* Corpo del messaggio */
+
+#open-messages {
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+
+    width: 100%;
+    height: calc(100% - 70px - 70px);
+
+    background-image: url("../img/mine.jpg");
+}
+
+#message {
+    position: relative;
+
+    width: 100%;
+    padding-left: 100px;
+    
+}
+
+#message:first-of-type {
+    margin-top: 55px;
+}
+.my-messagge {
+    position: absolute;
+    top: 0px;
+    right: 100px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 15px;
+
+    width: 325px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #C2E3A9;
+}
+
+.received-messagge {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 15px;
+    width: 325px;
+    height: 50px;
+    border-radius: 5px;
+
+    padding-bottom: 10px;
+
+    background-color: #FDFDFD;
+}
+
+
+/* per scrivere messaggi */
+
+#write-message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px;
+
+    width: 100%;
+    height: 70px;
+
+    background-color: #E5E0DD;
+}
+
+
+#write-message .left-part-mess, 
+#write-message .right-part-mess {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#write-message i {
+    font-size: 25px;
+    color: #6B7375;
+}
+
+
+#write-message .central-part-mess {
+    flex-grow: 1;
+}
+
+#write-message .central-part-mess input {
+    width: 100%; 
+    height: 50px;
+
+    border: none;
+    border-radius: 4px;
+    
 }
 
 
