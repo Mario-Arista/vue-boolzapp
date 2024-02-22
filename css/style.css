@@ -252,8 +252,6 @@ CHAT APERTA
     flex-grow: 1;
     height: 100%;
 
-    /* test */
-    border: 1px green solid;
 }
 
 /* Header Chat aperta */
@@ -323,7 +321,8 @@ CHAT APERTA
 #message:first-of-type {
     margin-top: 55px;
 }
-.my-messagge {
+
+.sent {
     position: absolute;
     top: 0px;
     right: 100px;
@@ -339,7 +338,7 @@ CHAT APERTA
     background-color: #C2E3A9;
 }
 
-.received-messagge {
+.received {
     position: absolute;
     top: 0px;
     left: 100px;
