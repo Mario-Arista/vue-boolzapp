@@ -1,7 +1,7 @@
 const {createApp} = Vue;
 
 createApp({
-    
+
     data() {
         return {
 
@@ -16,10 +16,9 @@ createApp({
 
             // variabile per v-model per cercare amico 
             searchedString: "",
+
             // Array vuoto in cui mettere contatti da filtrare che parte da stringa
             filteredContacts: "", 
-            // Copia per backup di tutti i contatti 
-            originalContacts: "", 
 
             contacts: [
                 {
@@ -192,10 +191,7 @@ createApp({
     },
 
     
-    mounted() {
-
-        // Mi copio tutti i contatti originali in array di backup
-        this.originalContacts = this.contacts;
+    created() {
 
         // Mi copio tutti i contatti anche nei filtrati che all'inizio saranno gli stessi
         this.filteredContacts = this.contacts;
@@ -250,14 +246,14 @@ createApp({
             if (this.searchedString.trim() !== '') {
 
                 // Filtro i contatti in base alla stringa cercata
-                this.filteredContacts = this.originalContacts.filter(function(contact) {
-                    return contact.name.toLowerCase().includes(this.searchedString.toLowerCase());
-                });
+                this.filteredContacts = this.contacts.filter(contact =>
+                    contact.name.toLowerCase().includes(this.searchedString.toLowerCase())
+                );
 
             } else {
 
-                // reimposto a array di backup
-                this.filteredContacts = this.originalContacts;
+                // reimposto a array originale
+                this.filteredContacts = [...this.contacts];
 
             }
 

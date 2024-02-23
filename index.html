@@ -106,9 +106,9 @@
                 <div class="friend-opened"> 
 
                     <div class="info-opened-friend">
-                        <img :src="contacts[indexForFriend].avatar" alt="contacts[indexForFriend].name">
+                        <img :src="filteredContacts[indexForFriend].avatar" alt="filteredContacts[indexForFriend].name">
                         <div class="testo-friend">
-                            <div class="friend-name">{{ contacts[indexForFriend].name }}</div>
+                            <div class="friend-name">{{ filteredContacts[indexForFriend].name }}</div>
                             <div class="last-message">
                                 Ultimo messaggio oggi alle 
                             <span class="time-message">12:00</span>
@@ -133,7 +133,7 @@
                     <div class="container">
 
                         <div class="message"
-                            v-for="currentMessage in contacts[indexForFriend].messages"
+                            v-for="currentMessage in filteredContacts[indexForFriend].messages"
                             :class="currentMessage.status"
                         > 
                             <div class="text" >
