@@ -10,6 +10,9 @@ createApp({
             // variabile per v-model per aggiungere mio messaggio che scrivo
             myMessage: "",
 
+            // messaggio di risposta random per tutti gli amici vuoto
+            randomMessageForAll: "",
+
             contacts: [
                 {
                     name: 'Michele',
@@ -184,31 +187,42 @@ createApp({
 
         // Funzione che al click mi fa vedere la conversazione 
         showConversation(index) {
-            
             this.indexForFriend = index;
-
         },
-
+    
         // Funzione che aggiunge un mio messaggio nella chat aperta
         addMessage() {
 
-            // Superbonus - Verifico che l'input del messaggio non sia vuoto
+            // Verifico che l'input del messaggio non sia vuoto
             if (this.myMessage.trim() !== '') {
 
-                // Aggiungo oggetto con data casuale
+                // Aggiungo il messaggio inviato dall'utente
                 this.contacts[this.indexForFriend].messages.push({
                     date: '23/02/2024 18:30:55',
                     message: this.myMessage,
                     status: 'sent'
-
                 });
 
                 // Pulisco l'input del messaggio dopo l'invio
                 this.myMessage = '';
-
+    
+                // Chiamo la funzione per aggiungere una risposta casuale dopo 1 sec.
+                setTimeout(this.addRandomAnswer, 1000);
             }
+
         },
- 
+    
+        // Funzione per aggiungere una risposta casuale per tutti
+        addRandomAnswer() {
+
+            // Aggiungo risposta casuale sia nella data che nel messaggio
+            this.contacts[this.indexForFriend].messages.push({
+                date: '23/02/2024 18:30:56',
+                message: 'Bene, ma non benissimo!!!',
+                status: 'received'
+            });
+
+        }
 
     },
 
