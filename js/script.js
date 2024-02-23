@@ -4,8 +4,11 @@ createApp({
     data() {
         return {
 
-            // contatore
+            // contatore per amici
             indexForFriend: 0,
+
+            // variabile per v-model per aggiungere mio messaggio che scrivo
+            myMessage: "",
 
             contacts: [
                 {
@@ -186,7 +189,26 @@ createApp({
 
         },
 
-        
+        // Funzione che aggiunge un mio messaggio nella chat aperta
+        addMessage() {
+
+            // Superbonus - Verifico che l'input del messaggio non sia vuoto
+            if (this.myMessage.trim() !== '') {
+
+                // Aggiungo oggetto con data casuale
+                this.contacts[this.indexForFriend].messages.push({
+                    date: '23/02/2024 18:30:55',
+                    message: this.myMessage,
+                    status: 'sent'
+
+                });
+
+                // Pulisco l'input del messaggio dopo l'invio
+                this.myMessage = '';
+
+            }
+        },
+ 
 
     },
 
