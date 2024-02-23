@@ -1,6 +1,7 @@
 const {createApp} = Vue;
 
 createApp({
+    
     data() {
         return {
 
@@ -12,6 +13,13 @@ createApp({
 
             // messaggio di risposta random per tutti gli amici vuoto
             randomMessageForAll: "",
+
+            // variabile per v-model per cercare amico 
+            searchedString: "",
+            // Array vuoto in cui mettere contatti da filtrare che parte da stringa
+            filteredContacts: "", 
+            // Copia per backup di tutti i contatti 
+            originalContacts: "", 
 
             contacts: [
                 {
@@ -183,6 +191,17 @@ createApp({
         }
     },
 
+    
+    mounted() {
+
+        // Mi copio tutti i contatti originali in array di backup
+        this.originalContacts = this.contacts;
+
+        // Mi copio tutti i contatti anche nei filtrati che all'inizio saranno gli stessi
+        this.filteredContacts = this.contacts;
+
+    },
+
     methods: {
 
         // Funzione che al click mi fa vedere la conversazione 
@@ -222,7 +241,28 @@ createApp({
                 status: 'received'
             });
 
-        }
+        },
+
+        // Funzione per cercare amici per nome
+        searchFriend() {
+
+            // Verifico che l'input del messaggio non sia vuoto
+            if (this.searchedString.trim() !== '') {
+
+                // Filtro i contatti in base alla stringa cercata
+                this.filteredContacts = this.originalContacts.filter(function(contact) {
+                    return contact.name.toLowerCase().includes(this.searchedString.toLowerCase());
+                });
+
+            } else {
+
+                // reimposto a array di backup
+                this.filteredContacts = this.originalContacts;
+
+            }
+
+
+        },
 
     },
 

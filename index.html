@@ -58,9 +58,17 @@
                 <!-- Filtro -->
                 <div id="chats-filter">
                     <button>
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i 
+                            @click="searchFriend()"
+                            class="fa-solid fa-magnifying-glass"
+                        ></i>
                     </button>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input 
+                        @keyup.enter="searchFriend()"
+                        v-model="searchedString"
+                        type="text"
+                        placeholder="Cerca o inizia una nuova chat"
+                    >
 
                 </div>
 
@@ -68,7 +76,7 @@
                 <div id="chats">
 
                    <div class="single-chat"
-                        v-for="(contact, index) in contacts"
+                        v-for="(contact, index) in filteredContacts"
                         @click="showConversation(index)"
 
                    > 
