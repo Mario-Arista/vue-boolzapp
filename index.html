@@ -57,8 +57,9 @@
 
                 <!-- Filtro -->
                 <div id="chats-filter">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
 
                 </div>
@@ -121,13 +122,24 @@
                 <!-- Corpo messaggi -->
                 <div id="open-messages">
 
-                    <div id="message"
-                        v-for="(message, index) in contacts[indexForFriend].messages"
-                    > 
-                        <div :class="message.status === 'received' ? 'received' : 'sent' ">
-                            <div>{{message.message}}</div>
+                    <div class="container">
+
+                        <div class="message"
+                            v-for="currentMessage in contacts[indexForFriend].messages"
+                            :class="currentMessage.status"
+                        > 
+                            <div class="text" >
+                                {{currentMessage.message}}
+                            </div>
+                            
+                            <div class="time">
+                                {{currentMessage.date}}
+                            </div>
+ 
                         </div>
+
                     </div>
+
 
                 </div>
 
@@ -141,9 +153,9 @@
                         <input type="text" placeholder="Scrivi un messaggio">
                     </div>
 
-                    <div class="right-part-mess">
+                    <button class="right-part-mess">
                         <i class="fa-solid fa-microphone"></i>
-                    </div>
+                    </button>
 
                 </div>
 

@@ -17,7 +17,7 @@ body{
     z-index: -1;
 
     width: 100%;
-    height: 220px;
+    height: 150px;
     background-color: #2E9688;
 }
 
@@ -28,12 +28,12 @@ main {
     justify-content: flex-start;
 
     max-width: 1600px;
-    height: 960px;
+    height: 900px;
 
     margin: 30px auto;
 
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 /* Stile in comune per icone header destra e sinistra */
@@ -50,10 +50,18 @@ main {
     font-size: 25px;
 }
 
+  /* Stile in comune per placeholder */
+
+input::placeholder {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
 /* Classi da gestire con js */
 
 .active {
-    background-color: red;
+    background-color: #E9EBEB;
 }
 /* 
 
@@ -144,7 +152,7 @@ ANTEPRIME DELLE CHAT
 
 #notific-received a {
 
-    color: #B1B1B1;
+    color: #999;
     font-size: 0.9em;
 }
 
@@ -160,17 +168,20 @@ ANTEPRIME DELLE CHAT
     background-color: white;
 }
 
-#chats-filter i {
+#chats-filter button {
 
     padding-left: 30px;
     color: #B1B1B1;
+
+    border: none;
+    background-color: transparent;
 
 }
 
 #chats-filter input {
     flex-grow: 1;
     
-    height: 100%;
+    height: 80%;
 
     margin-right: 30px;
 
@@ -184,7 +195,7 @@ ANTEPRIME DELLE CHAT
     width: 100%;
     height: calc(100% - 70px - 80px -50px );
 
-    overflow-y: scroll;
+    overflow-y: auto;
 
     background-color: #FFFFFF;
 }
@@ -305,62 +316,60 @@ CHAT APERTA
 /* Corpo del messaggio */
 
 #open-messages {
-    display: flex;
-    flex-direction: column;
-
-    overflow-y: scroll;
 
     width: 100%;
     height: calc(100% - 70px - 70px);
 
+    overflow-y: scroll;
+
     background-image: url("../img/mine.jpg");
 }
 
-#message {
+#open-messages .container {
+
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding-top: 50px;
+}
+
+.message {
     position: relative;
 
-    width: 100%;
-    padding-left: 100px;
+    max-width: 320px;
+
+    border-radius: 8px;
+    background-color: #d5f9ba;
+
+    padding: 18px 16px;
     
 }
 
-#message:first-of-type {
-    margin-top: 55px;
+.message .time {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+
+    font-size: 8px;
+    color: #999;
 }
 
-.sent {
-    position: absolute;
-    top: 0px;
-    right: 100px;
-
-    display: flex;
-    align-items: center;
-
-    padding-left: 15px;
-
-    width: 325px;
-    height: 50px;
-    border-radius: 5px;
+.message.sent {
+    align-self: flex-end;
     background-color: #C2E3A9;
 }
 
-.received {
-    position: absolute;
-    top: 0px;
-    left: 100px;
-
-    display: flex;
-    align-items: center;
-
-    padding-left: 15px;
-    width: 325px;
-    height: 50px;
-    border-radius: 5px;
-
-    padding-bottom: 10px;
-
+.message.received {
     background-color: #FDFDFD;
 }
+
+
 
 
 /* per scrivere messaggi */
@@ -384,6 +393,8 @@ CHAT APERTA
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    background-color: transparent;
 }
 
 #write-message i {

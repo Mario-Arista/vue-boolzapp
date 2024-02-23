@@ -7,9 +7,6 @@ createApp({
             // contatore
             indexForFriend: 0,
 
-            // per far apparire classe al click delle chat laterali
-            isActive: false,
-
             contacts: [
                 {
                     name: 'Michele',
@@ -187,7 +184,6 @@ createApp({
             
             this.indexForFriend = index;
 
-            
         },
 
         
