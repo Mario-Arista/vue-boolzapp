@@ -63,6 +63,28 @@ input::placeholder {
 .active {
     background-color: #E9EBEB;
 }
+
+.hidden {
+    display: none;
+}
+
+.info-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    position: absolute;
+    top: 20px;
+    right: 0px;
+
+    width: 150px;
+    height: 70px;
+
+    border-radius: 8px;
+
+    background-color: #E9EBEB;
+}
+
 /* 
 
 PARTE SINISTRA
@@ -261,10 +283,6 @@ CHAT APERTA
 */
 
 #open-chat {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
     flex-grow: 1;
     height: 100%;
 
@@ -342,7 +360,7 @@ CHAT APERTA
 .message {
     position: relative;
 
-    max-width: 320px;
+    width: 320px;
 
     border-radius: 8px;
     background-color: #d5f9ba;
@@ -360,6 +378,17 @@ CHAT APERTA
     color: #999;
 }
 
+.message .to-delete-mess {
+    position: absolute;
+    top: 1px;
+    right: 6px;
+
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    color: #999;
+}
+
 .message.sent {
     align-self: flex-end;
     background-color: #C2E3A9;
@@ -368,8 +397,6 @@ CHAT APERTA
 .message.received {
     background-color: #FDFDFD;
 }
-
-
 
 
 /* per scrivere messaggi */

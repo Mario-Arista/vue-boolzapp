@@ -76,12 +76,13 @@
                 <div id="chats">
 
                    <div class="single-chat"
+                        :class="{ active: index == indexForFriend}"
                         v-for="(contact, index) in filteredContacts"
                         @click="showConversation(index)"
 
                    > 
                         <div id="friend"> 
-                            <img :src="contact.avatar" alt="me stesso">
+                            <img :src="contact.avatar" :alt="contact.name">
                             <div>
                                 <div class="friend-name">{{ contact.name }}</div>
                                 <div class="last-mess">Ultimo messaggio inviato</div>
@@ -91,7 +92,7 @@
                         <div class="time-message">
                             12:00
                         </div>
-
+                    
                     </div>
 
 
@@ -133,7 +134,7 @@
                     <div class="container">
 
                         <div class="message"
-                            v-for="currentMessage in filteredContacts[indexForFriend].messages"
+                            v-for="(currentMessage, messageIndex) in filteredContacts[indexForFriend].messages"
                             :class="currentMessage.status"
                         > 
                             <div class="text" >
@@ -143,10 +144,30 @@
                             <div class="time">
                                 {{currentMessage.date}}
                             </div>
+
+                            <button class="to-delete-mess">
+                                <i 
+                                    class="fa-solid fa-chevron-down"
+                                    @click="myFilter(messageIndex)"
+                                >
+                                </i>
+                                <div class="hidden"
+                                    :class="{ 'info-message': currentMessage.showedFilter, 'hidden': !currentMessage.showedFilter }"
+                                    @click="deleteMessage(messageIndex)"
+                                >
+                                    <div>Message info</div>
+                                    <div
+                                    >
+                                        Delete message</div>
+                                </div>
+                            </button>
+                            
+
+                            </div>
  
                         </div>
 
-                    </div>
+                    
 
 
                 </div>
@@ -175,8 +196,6 @@
             </section>
 
         </main>
-
-        
 
     </div>
 
