@@ -20,6 +20,9 @@ createApp({
             // Variabile booleana per cambiare tema (light / dark)
             darkTheme: false,
 
+            chatOverview: null, 
+            openChat: null,
+
             contacts: [
                 {
                     name: 'Rag. Filini',
@@ -293,6 +296,7 @@ createApp({
         // Funzione che al click mi fa vedere la conversazione 
         showConversation(index) {
             this.indexForFriend = index;
+
         },
     
         // Funzione che aggiunge un mio messaggio nella chat aperta

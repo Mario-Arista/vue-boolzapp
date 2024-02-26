@@ -46,8 +46,6 @@ main {
 
     padding-left: 50px;
     padding-right: 50px;
-
-    transform: scale(1);
 }
 
 
@@ -116,7 +114,6 @@ CLASSI DA GESTIRE CON JS
     /* Aggiusto il filter per le immagini  */
     filter: invert(1);  
 }
-
 /* 
 
 PARTE SINISTRA
@@ -344,6 +341,10 @@ CHAT APERTA
 
 }
 
+.info-opened-friend .pr-icons {
+    display: none;
+}
+
 #open-chat .friend-opened img {
     width: 50px;
     height: 50px;
@@ -387,6 +388,9 @@ CHAT APERTA
     margin: 0 auto;
 
     padding-top: 50px;
+    padding-left: 8px;
+    padding-right: 8px;
+
 }
 
 .message {
@@ -475,6 +479,107 @@ CHAT APERTA
     
 }
 
+/* 
 
+MEDIA QUERRIES
 
+*/
+
+/* Screen less than 1200px */
+
+@media screen and (max-width: 1200px) {
+    main {
+        max-width: 1000px;
+
+    }
+
+    #chats-overview {
+
+        width: 360px;
+
+    }
+
+    .message {
+    
+        width: 220px;
+        
+    }
+}
+
+/* Screen less than 768px */
+
+@media screen and (max-width: 768px) {
+
+    #chats-overview {
+
+        width: 300px;
+
+    }
+
+    .message {
+    
+        width: 150px;
+        
+    }
+
+    .pr-icons {
+        gap: 10px;
+    
+        padding-right: 15px;
+    }
+
+    .pr-icons i {
+        font-size: 15px;
+    }
+    .last-message {
+
+        display: none;
+    }
+        
+}
+
+/* Screen less than 576px */
+
+@media screen and (max-width: 576px) {
+
+    main {
+
+        padding-top: 15px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+
+        height: auto;
+
+    }
+
+    #open-chat {
+
+        display: none;
+    }
+
+    .open-chat.showed {
+        display: block;
+    }
+
+    #chats-overview {
+        display: block;
+        width: 100%;
+
+    }
+
+    #chats {
+
+        height: auto;
+
+        overflow-y: hidden;
+
+    }
+
+    .info-opened-friend .pr-icons {
+        display: block;
+    }
+
+        
+}
 
