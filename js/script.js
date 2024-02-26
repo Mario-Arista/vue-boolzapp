@@ -20,8 +20,6 @@ createApp({
             // Variabile booleana per cambiare tema (light / dark)
             darkTheme: false,
 
-            chatOverview: null, 
-            openChat: null,
 
             contacts: [
                 {
