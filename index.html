@@ -189,8 +189,13 @@
                         >
                     </div>
 
-                    <button class="right-part-mess">
-                        <i class="fa-solid fa-microphone" @click="addMessage()"></i>
+                    <button class="right-part-mess"
+                            v-if="myMessage === '' "
+                    >
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                    <button v-else class="right-part-mess">
+                        <i class="fa-solid fa-paper-plane" @click="addMessage()"></i>
                     </button>
 
                 </div>
