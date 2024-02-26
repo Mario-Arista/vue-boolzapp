@@ -19,8 +19,8 @@
     <div id="app">
 
 
-        <!-- HEADER vuoto -->
-        <div id="changing-theme">
+        <!-- HEADER con elemento per cambiare tema -->
+        <div id="back-element">
             <i class="fa-solid fa-circle-half-stroke"
                 @click="changeTheme()"
             >
@@ -35,7 +35,9 @@
                 <div id="my-profile">
 
                     <div class="my-img">
-                        <img src="./img/avatar_io.jpg" alt="me stesso">
+                        <img src="./img/avatar_io.jpg" alt="me stesso"
+                            :class="darkTheme == true ? 'no-contrast' : '' "
+                        >
                         <span>Fantozzi</span>
                     </div>
 
@@ -87,7 +89,10 @@
 
                    > 
                         <div id="friend"> 
-                            <img :src="contact.avatar" :alt="contact.name">
+                            <img :src="contact.avatar"
+                            :alt="contact.name"
+                            :class="darkTheme == true ? 'no-contrast' : '' "
+                        >
                             <div>
                                 <div class="friend-name">{{ contact.name }}</div>
                                 <div class="last-mess">Ultimo messaggio inviato</div>
@@ -112,7 +117,11 @@
                 <div class="friend-opened"> 
 
                     <div class="info-opened-friend">
-                        <img :src="filteredContacts[indexForFriend].avatar" alt="filteredContacts[indexForFriend].name">
+                        <img 
+                            :src="filteredContacts[indexForFriend].avatar" 
+                            alt="filteredContacts[indexForFriend].name"
+                            :class="darkTheme == true ? 'no-contrast' : '' "
+                        >
                         <div class="testo-friend">
                             <div class="friend-name">{{ filteredContacts[indexForFriend].name }}</div>
                             <div class="last-message">

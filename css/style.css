@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: #DBDBD3;
+body {
     font-family: sans-serif;
+    background-color:#999;
 }
 
-#changing-theme {
+
+#back-element {
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
@@ -24,7 +25,7 @@ body{
     background-color: #2E9688;
 }
 
-#changing-theme i {
+#back-element i {
     color: black;
     font-size: 25px;
     padding: 10px;
@@ -45,9 +46,6 @@ main {
     padding-right: 50px;
 }
 
-.dark {
-    filter: grayscale(0.9);
-}
 
 /* Stile in comune per icone header destra e sinistra */
 
@@ -63,7 +61,7 @@ main {
     font-size: 25px;
 }
 
-  /* Stile in comune per placeholder */
+/* Stile in comune per placeholder */
 
 input::placeholder {
     padding-left: 10px;
@@ -71,16 +69,23 @@ input::placeholder {
   }
 
 
-/* Classi da gestire con js */
+/* 
 
+CLASSI DA GESTIRE CON JS
+
+*/
+
+/* chat selezionata */
 .active {
     background-color: #E9EBEB;
 }
 
+/* per nascondere elemento */
 .hidden {
     display: none;
 }
 
+/* pop-up per eliminare messaggio */
 .info-message {
     display: flex;
     flex-direction: column;
@@ -96,6 +101,16 @@ input::placeholder {
     border-radius: 8px;
 
     background-color: #E9EBEB;
+}
+
+/* Classi per dark theme */
+.dark {
+    filter: invert(1);
+}
+
+.no-contrast {
+    /* Aggiusto il filter per le immagini  */
+    filter: invert(1);  
 }
 
 /* 
@@ -228,7 +243,7 @@ ANTEPRIME DELLE CHAT
 #chats {
 
     width: 100%;
-    height: calc(100% - 70px - 80px -50px );
+    height: calc(100% - 70px - 80px - 50px );
 
     overflow-y: auto;
 
