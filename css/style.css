@@ -12,8 +12,10 @@ body {
 
 #back-element {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+
     position: absolute;
     top: 0px;
     right: 0px;
@@ -44,6 +46,8 @@ main {
 
     padding-left: 50px;
     padding-right: 50px;
+
+    transform: scale(1);
 }
 
 
@@ -402,7 +406,7 @@ CHAT APERTA
     bottom: 6px;
     right: 6px;
 
-    font-size: 8px;
+    font-size: 0.7em;
     color: #999;
 }
 
@@ -470,6 +474,7 @@ CHAT APERTA
     border-radius: 4px;
     
 }
+
 
 
 

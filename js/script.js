@@ -11,9 +11,6 @@ createApp({
             // variabile per v-model per aggiungere mio messaggio che scrivo
             myMessage: "",
 
-            // messaggio di risposta random per tutti gli amici vuoto
-            randomMessageForAll: "",
-
             // variabile per v-model per cercare amico 
             searchedString: "",
 
@@ -22,13 +19,11 @@ createApp({
 
             // Variabile booleana per cambiare tema (light / dark)
             darkTheme: false,
-            
 
             contacts: [
                 {
                     name: 'Rag. Filini',
                     avatar: './img/avatar_1.jpg',
-                    visible: true,
                     random: "Batti lei?!",
                     messages: [
                         {
@@ -56,7 +51,6 @@ createApp({
                 {
                     name: 'Megadirettore Galattico',
                     avatar: './img/avatar_2.jpg',
-                    visible: true,
                     random: "Fantozzi, è licenziato!",
                     messages: [
                         {
@@ -78,7 +72,7 @@ createApp({
                             showedFilter: false
                         },
                         {
-                            date: '20/012/2024 15:30:55',
+                            date: '20/02/2024 15:30:55',
                             message: "Ahhhhh com'è umano lei!",
                             status: 'sent',
                             showedFilter: false
@@ -89,7 +83,6 @@ createApp({
                 {
                     name: 'Folagra',
                     avatar: './img/avatar_3.jpg',
-                    visible: true,
                     random: "Viva la classe operaia!",
                     messages: [
                         {
@@ -121,7 +114,6 @@ createApp({
                 {
                     name: 'Sig.na Silvani',
                     avatar: './img/avatar_4.jpg',
-                    visible: true,
                     random: "Fantocci",
                     messages: [
                         {
@@ -159,7 +151,6 @@ createApp({
                 {
                     name: 'Pina',
                     avatar: './img/avatar_5.jpg',
-                    visible: true,
                     random: "Ugo, ma che ti è successo?",
                     messages: [
                         {
@@ -185,7 +176,6 @@ createApp({
                 {
                     name: 'Mariangela',
                     avatar: './img/avatar_6.jpg',
-                    visible: true,
                     random: "Papinoooooo",
                     messages: [
                         {
@@ -205,7 +195,6 @@ createApp({
                 {
                     name: 'Guidobaldo Maria Riccardelli',
                     avatar: './img/avatar_7.jpg',
-                    visible: true,
                     random: "Che capolavoro la Corazzata Kotiomkin!",
                     messages: [
                         {
@@ -231,7 +220,6 @@ createApp({
                 {
                     name: 'Calboni',
                     avatar: './img/avatar_8.jpg',
-                    visible: true,
                     random: "Si dice scotcs",
                     messages: [
                         {
@@ -257,7 +245,6 @@ createApp({
                 {
                     name: 'Maestro Canello',
                     avatar: './img/avatar_9.jpg',
-                    visible: true,
                     random: "Vuole un autografo?",
                     messages: [
                         {
@@ -270,9 +257,6 @@ createApp({
                 }
             ]
             
-
-
-            
         }
     },
 
@@ -281,6 +265,26 @@ createApp({
 
         // Mi copio tutti i contatti anche nei filtrati che all'inizio saranno gli stessi
         this.filteredContacts = [...this.contacts];
+
+        // Ciclo for per selezionare ogni contatto
+        for (let i = 0; i < this.filteredContacts.length; i++) {
+
+            // Mi seleziono tutti i contatti
+            let contact = this.filteredContacts[i];
+
+            // Ciclo for per selezionare ogni contatto
+            for (var j = 0; j < contact.messages.length; j++) {
+
+                // Mi seleziono tutti i messaggi di tutti gli amici
+                let message = contact.messages[j];
+
+                // Cambio formato della data e la metto dentro nuova chiave time
+                let dateTime = luxon.DateTime.fromFormat(message.date, 'dd/MM/yyyy HH:mm:ss');
+                message.time = dateTime.toFormat('HH:mm');
+
+            }
+        }
+
 
     },
 
@@ -297,19 +301,26 @@ createApp({
             // Verifico che l'input del messaggio non sia vuoto
             if (this.myMessage.trim() !== '') {
 
+                // Importo DateTime da Luxon
+                const { DateTime } = luxon;
+
+                // Ottiengo l'orario attuale
+                const currentTimeMyMessage = DateTime.now().toFormat('HH:mm');
+
                 // Aggiungo il messaggio inviato dall'utente
                 this.filteredContacts[this.indexForFriend].messages.push({
-                    date: '23/02/2024 18:30:55',
+                    date: DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss'),
                     message: this.myMessage,
                     status: 'sent',
                     showedFilter: false,
+                    time: currentTimeMyMessage,
                 });
 
                 // Pulisco l'input del messaggio dopo l'invio
                 this.myMessage = '';
     
                 // Chiamo la funzione per aggiungere una risposta casuale dopo 1 sec.
-                setTimeout(this.addRandomAnswer, 1000);
+                setTimeout(this.addRandomAnswer, 500);
             }
 
         },
@@ -317,12 +328,19 @@ createApp({
         // Funzione per aggiungere una risposta casuale per tutti
         addRandomAnswer() {
 
-            // Aggiungo risposta casuale sia nella data che nel messaggio
+            // Importo DateTime da Luxon
+            const { DateTime } = luxon;
+
+            // ottengo orario
+            const currentDateRandomMessage = DateTime.now().toFormat('HH:mm');
+
+            // Aggiungo risposta 
             this.filteredContacts[this.indexForFriend].messages.push({
-                date: '23/02/2024 18:30:56',
-                message: this.contacts[this.indexForFriend].random,
+                date: DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss'),
+                message: this.filteredContacts[this.indexForFriend].random,
                 status: 'received',
-                showedFilter: false
+                showedFilter: false,
+                time: currentDateRandomMessage,
             });
 
         },
@@ -368,8 +386,10 @@ createApp({
 
         // Funzione per cambiare tema
         changeTheme() {
+
             this.darkTheme = !this.darkTheme;
-        }
+
+        },
 
     },
 

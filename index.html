@@ -21,13 +21,17 @@
 
         <!-- HEADER con elemento per cambiare tema -->
         <div id="back-element">
-            <i class="fa-solid fa-circle-half-stroke"
+            <i 
+                class="fa-solid fa-circle-half-stroke"
                 @click="changeTheme()"
             >
             </i>
         </div>
 
-        <main :class="darkTheme == true ? 'dark' : '' ">
+        <main 
+            :class="darkTheme == true ? 'dark' : '' "
+            :class="{ 'bigger-text': isFontEnlarged }"
+        >
             <!-- Parte laterale con anteprime chat -->
             <section id="chats-overview">
 
@@ -100,7 +104,7 @@
                         </div>
 
                         <div class="time-message">
-                            12:00
+                            {{ contact.messages[contact.messages.length - 1].time }}
                         </div>
                     
                     </div>
@@ -126,7 +130,7 @@
                             <div class="friend-name">{{ filteredContacts[indexForFriend].name }}</div>
                             <div class="last-message">
                                 Ultimo messaggio oggi alle 
-                            <span class="time-message">12:00</span>
+                            <span class="time-message">{{ filteredContacts[indexForFriend].messages[filteredContacts[indexForFriend].messages.length - 1].time }}</span>
                             </div>
                         </div>
                     </div>
@@ -156,7 +160,7 @@
                             </div>
                             
                             <div class="time">
-                                {{currentMessage.date}}
+                                {{currentMessage.time}}
                             </div>
 
                             <button class="to-delete-mess">
@@ -219,6 +223,9 @@
         </main>
 
     </div>
+
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
 
     <script src="./js/script.js"></script>
 
