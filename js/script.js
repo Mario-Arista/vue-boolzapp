@@ -295,7 +295,7 @@ createApp({
             if (this.myMessage.trim() !== '') {
 
                 // Aggiungo il messaggio inviato dall'utente
-                this.contacts[this.indexForFriend].messages.push({
+                this.filteredContacts[this.indexForFriend].messages.push({
                     date: '23/02/2024 18:30:55',
                     message: this.myMessage,
                     status: 'sent',
@@ -315,7 +315,7 @@ createApp({
         addRandomAnswer() {
 
             // Aggiungo risposta casuale sia nella data che nel messaggio
-            this.contacts[this.indexForFriend].messages.push({
+            this.filteredContacts[this.indexForFriend].messages.push({
                 date: '23/02/2024 18:30:56',
                 message: this.contacts[this.indexForFriend].random,
                 status: 'received',
@@ -356,6 +356,11 @@ createApp({
         // Funzione per cancellare messaggi
         deleteMessage(messageIndex) {
 
+            // Ottengo il contatto attivo
+            const activeContact = this.filteredContacts[this.indexForFriend];
+
+            // Rimuovo il messaggio dall'array messages del contatto attivo
+            activeContact.messages.splice(messageIndex, 1);
         },
 
     },

@@ -153,12 +153,14 @@
                                 </i>
                                 <div class="hidden"
                                     :class="{ 'info-message': currentMessage.showedFilter, 'hidden': !currentMessage.showedFilter }"
-                                    @click="deleteMessage(messageIndex)"
                                 >
                                     <div>Message info</div>
-                                    <div
+                                    <div 
+                                        @click="deleteMessage(messageIndex)"
+                                    
                                     >
-                                        Delete message</div>
+                                        Delete message
+                                    </div>
                                 </div>
                             </button>
                             
