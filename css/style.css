@@ -9,7 +9,10 @@ body{
     font-family: sans-serif;
 }
 
-#header-empty {
+#changing-theme {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -19,6 +22,12 @@ body{
     width: 100%;
     height: 150px;
     background-color: #2E9688;
+}
+
+#changing-theme i {
+    color: black;
+    font-size: 25px;
+    padding: 10px;
 }
 
 /* Inizio BoolzApp */
@@ -32,8 +41,12 @@ main {
 
     margin: 30px auto;
 
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.dark {
+    filter: grayscale(0.9);
 }
 
 /* Stile in comune per icone header destra e sinistra */

@@ -19,6 +19,9 @@ createApp({
 
             // Array vuoto in cui mettere contatti da filtrare che parte da stringa
             filteredContacts: [],
+
+            // Variabile booleana per cambiare tema (light / dark)
+            darkTheme: false,
             
 
             contacts: [
@@ -362,6 +365,11 @@ createApp({
             // Rimuovo il messaggio dall'array messages del contatto attivo
             activeContact.messages.splice(messageIndex, 1);
         },
+
+        // Funzione per cambiare tema
+        changeTheme() {
+            this.darkTheme = !this.darkTheme;
+        }
 
     },
 

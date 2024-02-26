@@ -20,9 +20,14 @@
 
 
         <!-- HEADER vuoto -->
-        <div id="header-empty"></div>
+        <div id="changing-theme">
+            <i class="fa-solid fa-circle-half-stroke"
+                @click="changeTheme()"
+            >
+            </i>
+        </div>
 
-        <main>
+        <main :class="darkTheme == true ? 'dark' : '' ">
             <!-- Parte laterale con anteprime chat -->
             <section id="chats-overview">
 
