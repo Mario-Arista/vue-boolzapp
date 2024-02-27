@@ -8,19 +8,19 @@ createApp({
             // contatore per amici
             indexForFriend: 0,
 
-            // variabile per v-model per aggiungere mio messaggio che scrivo
+            // stringa che inizializzo vuota per v-model per aggiungere messaggio che scrivo
             myMessage: "",
 
-            // variabile per v-model per cercare amico 
+            // stringa che inizializzo vuota per v-model filtro amico 
             searchedString: "",
 
-            // Array vuoto in cui mettere contatti da filtrare che parte da stringa
+            // Array vuoto in cui mettere contatti da filtrare 
             filteredContacts: [],
 
             // Variabile booleana per cambiare tema (light / dark)
             darkTheme: false,
 
-
+            // Array originale 
             contacts: [
                 {
                     name: 'Rag. Filini',
@@ -267,6 +267,7 @@ createApp({
         // Mi copio tutti i contatti anche nei filtrati che all'inizio saranno gli stessi
         this.filteredContacts = [...this.contacts];
 
+        // Cicli for per crearmi una nuava chiave TIME dentro tutti i messages
         // Ciclo for per selezionare ogni contatto
         for (let i = 0; i < this.filteredContacts.length; i++) {
 

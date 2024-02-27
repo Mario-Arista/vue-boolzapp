@@ -560,13 +560,11 @@ MEDIA QUERRIES
         display: none;
     }
 
-    .open-chat.showed {
-        display: block;
-    }
 
     #chats-overview {
         display: block;
         width: 100%;
+        
 
     }
 
